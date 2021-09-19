@@ -1,4 +1,4 @@
-name: Test
+name: Test Manually Workflow
 
 on:
   workflow_dispatch:
