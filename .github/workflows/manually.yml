@@ -19,6 +19,7 @@ jobs:
         run: |-
           echo "Hello World Manually!"
           echo "{{$GITHUB_REF}}"
+          git describe --tags $(git rev-list --tags --max-count=1)
       - name: 'Get Previous tag'
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
