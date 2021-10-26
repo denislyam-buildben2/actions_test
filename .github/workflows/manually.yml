@@ -1,8 +1,6 @@
 name: Test Manually Workflow
 
 on:
-  branches:
-    - master
   workflow_dispatch:
     inputs:
       logLevel:
@@ -12,6 +10,7 @@ on:
       tags:
         description: 'Test scenario tags'
 jobs:
+  if: github.ref == 'refs/heads/feature/debug'
   print-hello-world-manually:
     runs-on: ubuntu-latest
     steps:
