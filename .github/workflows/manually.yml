@@ -15,7 +15,9 @@ jobs:
     if: github.ref == 'refs/heads/master'
     steps:
       - name: PrintWorkDir
-        run: pwd
+        run: |-
+          pwd
+          ls -la /home/runner/work/actions_test/actions_test
       - uses: actions/checkout@v2
       - name: Print Something
         run: |-
