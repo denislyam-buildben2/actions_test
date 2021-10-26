@@ -14,10 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
-      #- uses: actions/checkout@v2
+      - name: PrintWorkDir
+        run: pwd
+      - uses: actions/checkout@v2
       - name: Print Something
         run: |-
           echo "Hello World Manually!"
+          ls -la /home/runner/work/actions_test/actions_test
           echo "{{$GITHUB_REF}}"
           git describe --tags $(git rev-list --tags --max-count=1)
       - name: 'Get Previous tag'
