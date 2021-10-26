@@ -18,7 +18,7 @@ jobs:
         run: |-
           pwd
           ls -la /home/runner/work/actions_test/actions_test
-      - uses: actions/checkout@v2
+    #  - uses: actions/checkout@v2
       - name: Print Something
         run: |-
           echo "Hello World Manually!"
