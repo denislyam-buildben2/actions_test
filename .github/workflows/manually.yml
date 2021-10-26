@@ -12,9 +12,10 @@ on:
 jobs:
   print-hello-world-manually:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/feature/debug'
+    #if: github.ref == 'refs/heads/feature/debug'
     steps:
       - uses: actions/checkout@v2
       - name: Print Something
         run: |-
           echo "Hello World Manually!"
+          echo "{{$GITHUB_REF}}"
