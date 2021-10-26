@@ -12,10 +12,18 @@ on:
 jobs:
   print-hello-world-manually:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/feature/develop'
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
       - name: Print Something
         run: |-
           echo "Hello World Manually!"
           echo "{{$GITHUB_REF}}"
+      - name: 'Get Current tag'
+        id: currenttag
+        uses: "WyriHaximus/github-action-get-previous-tag@v1"
+       # env:
+       #   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Print Tag
+        run: |-
+          echo "Current Tag  ${{ steps.currenttag.outputs.tag }}"
