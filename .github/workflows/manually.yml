@@ -1,6 +1,8 @@
 name: Test Manually Workflow
 
 on:
+  branches:
+    - master
   workflow_dispatch:
     inputs:
       logLevel:
