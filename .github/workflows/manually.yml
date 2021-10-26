@@ -22,8 +22,8 @@ jobs:
       - name: 'Get Current tag'
         id: currenttag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
-       # env:
-       #   GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        env:
+          GITHUB_TOKEN: "${{ secrets.TEST_SECRET }}"
       - name: Print Tag
         run: |-
           echo "Current Tag  ${{ steps.currenttag.outputs.tag }}"
