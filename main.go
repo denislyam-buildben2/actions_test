@@ -6,6 +6,9 @@ import (
 )
 
 func main() {
+
+
+	//eqwe
 	fmt.Println("Hello World!", os.Args)
 	de, err := os.ReadDir("./")
 	if err != nil {
