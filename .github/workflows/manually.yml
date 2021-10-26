@@ -19,11 +19,11 @@ jobs:
         run: |-
           echo "Hello World Manually!"
           echo "{{$GITHUB_REF}}"
-      - name: 'Get Current tag'
-        id: currenttag
+      - name: 'Get Previous tag'
+        id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
-        env:
-          GITHUB_TOKEN: "${{ secrets.TEST_SECRET }}"
+        with:
+          fallback: 1.0.0
       - name: Print Tag
         run: |-
           echo "Current Tag  ${{ steps.currenttag.outputs.tag }}"
