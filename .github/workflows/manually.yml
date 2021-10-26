@@ -12,7 +12,7 @@ on:
 jobs:
   print-hello-world-manually:
     runs-on: ubuntu-latest
-    if: $GITHUB_REF == 'refs/heads/feature/develop'
+    if: GITHUB_REF == 'refs/heads/feature/develop'
     steps:
       - uses: actions/checkout@v2
       - name: Print Something
