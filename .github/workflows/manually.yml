@@ -24,6 +24,7 @@ jobs:
           echo "Hello World Manually!"
           ls -la /home/runner/work/actions_test/actions_test
           echo "{{$GITHUB_REF}}"
+          git ls-remote --tags origin
           echo ${$(git ls-remote --tags origin | tail -1 | awk '{print $2}')#refs/tags/}
       - name: 'Get Previous tag'
         id: previoustag
