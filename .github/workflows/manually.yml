@@ -18,14 +18,17 @@ jobs:
         run: |-
           pwd
           ls -la /home/runner/work/actions_test/actions_test
-    #  - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Print Something
         run: |-
           echo "Hello World Manually!"
           ls -la /home/runner/work/actions_test/actions_test
           echo "{{$GITHUB_REF}}"
-          git ls-remote --tags origin
-          echo ${$(git ls-remote --tags origin | tail -1 | awk '{print $2}')#refs/tags/}
+
+        #git ls-remote --tags origin
+        #echo ${$(git ls-remote --tags origin | tail -1 | awk '{print $2}')#refs/tags/}
       - name: 'Get Previous tag'
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
@@ -35,4 +38,4 @@ jobs:
           fallback: 1.0.0
       - name: Print Tag
         run: |-
-          echo "Current Tag  ${{ steps.currenttag.outputs.tag }}"
+          echo "Current Tag  ${{ steps.currenttag.previoustag.tag }}"
